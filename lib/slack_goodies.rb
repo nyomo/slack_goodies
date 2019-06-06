@@ -21,7 +21,7 @@ class SlackGoodies
     return @channels
   end
   def users_list 
-    return @users if @users.nil 
+    return @users if !@users.nil?
     list = @slack.users_list
     @users = list["members"]
     while list != nil
