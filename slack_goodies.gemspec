@@ -17,4 +17,6 @@ Gem::Specification.new do |spec|
   spec.files  = ["lib/slack_goodies.rb"]
   spec.homepage = 'http://nyomo.go5.jp/wiki/rubygem'
   spec.license = 'MIT'
+
+  spec.add_runtime_dependency "slack-api","1.6.1"
 end
