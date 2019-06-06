@@ -1,13 +1,13 @@
 require 'slack'
 class SlackGoodies
-  def initialize()
+  def initialize
     @slack = Slack::Client.new token: ENV['SLACK_TOKEN']
   end
   def auth_test
     @slack.auth_test
   end
   def channel_list
-    return if @channels != @channels.nil
+    return @channels if !@channels.nil?
     list = @slack.channels_list
     @channels = list["channels"]
     while list != nil
