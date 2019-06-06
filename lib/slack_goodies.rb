@@ -1,23 +1,37 @@
 require 'slack'
 class SlackGoodies
   def initialize()
-    @@slack = Slack::Client.new token: ENV['SLACK_TOKEN']
+    @slack = Slack::Client.new token: ENV['SLACK_TOKEN']
   end
   def auth_test
-    @@slack.auth_test
+    @slack.auth_test
   end
   def channel_list
-    list = @@slack.channels_list()
-    @@channels = list["channels"]
+    return if @channels != @channels.nil
+    list = @slack.channels_list
+    @channels = list["channels"]
     while list != nil
       if  list["response_metadata"]["next_cursor"] != ""
-        list = @@slack.channels_list(cursor:list["response_metadata"]["next_cursor"])
-        @@channels += list["channels"]
+        list = @slack.channels_list(cursor:list["response_metadata"]["next_cursor"])
+        @channels += list["channels"]
       else
         list = nil
       end
     end
-    @@channels
+    return @channels
+  end
+  def users_list 
+    return @users if @users.nil 
+    list = @slack.users_list
+    @users = list["members"]
+    while list != nil
+      if  list["response_metadata"]["next_cursor"] != ""
+        list = @slack.users_list(cursor:list["response_metadata"]["next_cursor"])
+        @users += list["members"]
+      else
+        list = nil
+      end
+    end
+    @users
   end
 end 
-
