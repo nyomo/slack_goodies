@@ -34,4 +34,10 @@ class SlackGoodies
     end
     @users
   end
+  def email2userdata(email)
+    if @users.nil?
+       @users = self.users_list
+    end
+    userdata = @users.select{|u| (!u["deleted"] && /#{email}/ === u["profile"]["email"])}
+  end
 end 
