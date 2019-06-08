@@ -18,7 +18,6 @@ class SlackGoodies
         list = nil
       end
     end
-    return @channels
   end
   def users_list 
     return @users if !@users.nil?
@@ -39,5 +38,15 @@ class SlackGoodies
        @users = self.users_list
     end
     userdata = @users.select{|u| (!u["deleted"] && /#{email}/ === u["profile"]["email"])}
+  end
+  def channelname2channeldata(channelname)
+    if @channels.nil?
+       @channels = self.channel_list
+    end
+    @channels.each do |k|
+      if k["name"] == channelname then
+        channeldata = k
+      end
+    end
   end
 end 
