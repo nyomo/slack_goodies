@@ -19,4 +19,5 @@ Gem::Specification.new do |spec|
   spec.license = 'MIT'
 
   spec.add_runtime_dependency "slack-api","1.6.1"
+  spec.add_runtime_dependency "optparse"
 end
