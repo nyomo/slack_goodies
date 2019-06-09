@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'slack_goodies'
+
+sl = SlackGoodies.new
+p sl.auth_test
