@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   #spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
   #  `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   #end
-  spec.files  = ["lib/slack_goodies.rb"]
+  spec.files  = ["lib/slack_goodies.rb","lib/slack_goodies/cli.rb","lib/slack_goodies/connection.rb"]
   spec.homepage = 'http://nyomo.go5.jp/wiki/rubygem'
   spec.license = 'MIT'
 
