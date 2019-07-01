@@ -10,7 +10,7 @@ module SlackGoodies
           opt.on('--regexp VALUE',Array,'正規表現でユーザのメールアドレスを指定')	{|v| @options[:r] = v}
   				opt.on('--channel VALUE','チャンネル名を指定'){|v| @options[:channel] = v}
   				opt.on('--filename FILENAME','ファイルからユーザのメールアドレスを読み込む'){|v| @options[:filename] = v}
-          opt.on('--[no-]dryrun',"dryrunにする(default: #{option[:dryrun]})"){|v| @options[:dryrun] = v}
+          opt.on('--[no-]dryrun',"dryrunにする(default: #{@options[:dryrun]})"){|v| @options[:dryrun] = v}
           begin
             opt.parse!(ARGV)
           rescue OptionParser::InvalidOption=>error
