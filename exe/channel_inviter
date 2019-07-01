@@ -1,10 +1,9 @@
 #!/usr/bin/env ruby
-require 'slack_goodies'
-require 'optparse'
-
+require "slack_goodies"
 sl = SlackGoodies::Connection.new
+cmd = SlackGoodies::Cli.new
 
-p sl.check_permissions
-p sl.users_list
-#p sl.email2userdata(".*@gmail.com")
+sl.email2userdata(".*@gmail.com").each do |user|
+  puts "#{user["name"]} #{user["profile"]["email"]}"
+end
 
