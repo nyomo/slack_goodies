@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 require 'slack_goodies'
+require 'optparse'
 
-sl = SlackGoodies.new
-p sl.auth_test
+sl = SlackGoodies::Connection.new
+
+p sl.check_permissions
+p sl.users_list
+#p sl.email2userdata(".*@gmail.com")
+
