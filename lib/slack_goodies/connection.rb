@@ -5,7 +5,7 @@ module SlackGoodies
       @slack = Slack::Client.new token: ENV['SLACK_TOKEN']
       chk = self.auth_test
       if chk["ok"] == false
-        @slack = nil
+        raise ApiKeyPermissionError.exception(chk["error"])
       end
     end
     def auth_test
@@ -57,5 +57,11 @@ module SlackGoodies
     end
   end 
   class ApiKeyPermissionError < StandardError
+    def initialize(message)
+      super(message)
+    end
+    def exeception(message)
+      self.new(message)
+    end
   end
 end
