@@ -3,7 +3,9 @@ require "slack_goodies"
 sl = SlackGoodies::Connection.new
 cmd = SlackGoodies::Cli.new
 
-sl.email2userdata(".*@gmail.com").each do |user|
-  puts "#{user["name"]} #{user["profile"]["email"]}"
+begin
+  sl = SlackGoodies::Connection.new
+rescue =>e
+  p e.message
 end
 
