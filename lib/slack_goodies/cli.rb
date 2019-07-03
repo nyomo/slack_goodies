@@ -24,6 +24,20 @@ module SlackGoodies
           end
           @help = opt.help
         end
+        self.check_opt
+    end
+    def check_opt
+      #使うアプリ毎に必須オプションなどを設定する
+      if self.get(:channel).nil?
+        puts "チャンネル名の指定が必要です"
+        puts self.help
+        exit
+      end
+      if self.get(:mail).nil?
+        puts "メールアドレスの指定が必要です"
+        puts self.help
+        exit
+      end
     end
     def get(name)
       @options[name]
