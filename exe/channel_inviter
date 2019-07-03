@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 require "slack_goodies"
-sl = SlackGoodies::Connection.new
-cmd = SlackGoodies::Cli.new
+
+cli = SlackGoodies::Cli.new
+
+mailaddr_regexp=cli.get(:mail)
+channel_name=cli.get(:channel)
 
 begin
   sl = SlackGoodies::Connection.new
