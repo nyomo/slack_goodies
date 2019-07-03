@@ -7,10 +7,10 @@ module SlackGoodies
       if chk["ok"] == false
         raise ApiKeyPermissionError.exception(chk["error"])
       end
+      @channels = nil
     end
     def auth_test
       @slack.auth_test
-  
     end
     def channel_list
       return @channels if !@channels.nil?
@@ -24,6 +24,7 @@ module SlackGoodies
           list = nil
         end
       end
+      @channels
     end
     def users_list 
       return @users if !@users.nil?
