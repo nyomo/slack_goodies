@@ -35,4 +35,7 @@ else
 end
 sl.email2userdata(mailaddr_regexp).each do |user|
   puts "#{dryrun}#{user["real_name"]}(#{user["profile"]["email"]})"
+  if !cli.get(:dryrun) then
+    sl.channels_invite(channel:channel_data['id'],user:user['id'])
+  end
 end
