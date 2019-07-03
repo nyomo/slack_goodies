@@ -9,7 +9,8 @@ channel_name=cli.get(:channel)
 begin
   sl = SlackGoodies::Connection.new
 rescue =>e
-  p e.message
+  puts "SlackConnectionError #{e.message}"
+  exit
 end
 
 cmd = SlackGoodies::Cli.new
