@@ -25,6 +25,7 @@ module SlackGoodies
           @help = opt.help
         end
     end
+    def get(name)                                                                                                             @options[name]                                                                                                        end
     def help
       @help
     end
