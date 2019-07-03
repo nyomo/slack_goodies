@@ -22,8 +22,11 @@ module SlackGoodies
             puts opt.help 
             exit
           end
+          @help = opt.help
         end
-        p @options
+    end
+    def help
+      @help
     end
   end
 end
