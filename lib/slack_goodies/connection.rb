@@ -58,6 +58,9 @@ module SlackGoodies
       end
       channeldata
     end
+    def channels_invite(options={})
+      @slack.channels_invite(options)
+    end
   end 
   class ApiKeyPermissionError < StandardError
     def initialize(message)
