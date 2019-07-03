@@ -7,7 +7,7 @@ module SlackGoodies
         }
         OptionParser.new do |opt|
           opt.banner = "Usage:ほげほげ"
-          opt.on('--regexp VALUE',Array,'正規表現でユーザのメールアドレスを指定')	{|v| @options[:r] = v}
+          opt.on('--regexp VALUE','正規表現でユーザのメールアドレスを指定')	{|v| @options[:mail] = v}
   				opt.on('--channel VALUE','チャンネル名を指定'){|v| @options[:channel] = v}
   				opt.on('--filename FILENAME','ファイルからユーザのメールアドレスを読み込む'){|v| @options[:filename] = v}
           opt.on('--[no-]dryrun',"dryrunにする(default: #{@options[:dryrun]})"){|v| @options[:dryrun] = v}
