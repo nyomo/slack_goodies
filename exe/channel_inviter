@@ -13,7 +13,8 @@ rescue =>e
   exit
 end
 
-cmd = SlackGoodies::Cli.new
+puts "以下のアカウントをチャンネルに招待します"
+dryrun="[dryrun] " if cli.get(:dryrun) 
 sl.email2userdata(mailaddr_regexp).each do |user|
-  puts "#{user["name"]} #{user["profile"]["email"]}"
+  puts "#{dryrun}#{user["real_name"]}(#{user["profile"]["email"]})"
 end
