@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name = "slack_goodies"
-  spec.version = "0.0.0"
+  spec.version = "0.1.0"
   spec.date = "2019-04-23"
   spec.summary = "Slack goodies command"
   spec.description = "Slack便利コマンド "
