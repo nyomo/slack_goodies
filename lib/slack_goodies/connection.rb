@@ -47,6 +47,7 @@ module SlackGoodies
       @users.select{|u| (!u["deleted"] && /#{email}/ === u["profile"]["email"])}
     end
     def channelname2channeldata(channelname)
+      channeldata = nil
       if @channels.nil?
          @channels = self.channel_list
       end
@@ -55,6 +56,7 @@ module SlackGoodies
           channeldata = k
         end
       end
+      channeldata
     end
   end 
   class ApiKeyPermissionError < StandardError
