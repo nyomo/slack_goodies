@@ -25,7 +25,7 @@ if channel_data['is_archived'] == "true" then
   exit
 end
 puts "以下のチャンネルに対して招待を行います"
-puts "Channel Name: #{channel_data['name']}"
+puts "Channel: #{channel_data['name']} #{channel_data['id']}"
 puts "#{channel_data['purpose']['value']}"
 
 if cli.get(:dryrun) then
