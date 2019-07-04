@@ -2,7 +2,7 @@
 
 
 ## インストール方法
-このリポジトリをcloneしてbundle install
+このリポジトリをcloneしてrake install
 
 もしくは
 
