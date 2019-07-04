@@ -2,6 +2,9 @@
 
 
 ## インストール方法
+このリポジトリをcloneしてbundle install
+
+もしくは
 
 ```
 gem install specific_install
