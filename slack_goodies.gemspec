@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
 
-  spec.add_runtime_dependency "slack-api","1.6.1"
+  spec.add_runtime_dependency "slack-ruby-client"
 end

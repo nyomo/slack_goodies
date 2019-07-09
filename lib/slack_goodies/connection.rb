@@ -1,8 +1,11 @@
-require 'slack'
+require 'slack-ruby-client'
 module SlackGoodies
   class Connection
     def initialize
-      @slack = Slack::Client.new token: ENV['SLACK_TOKEN']
+      Slack.configure do |config|
+        config.token = ENV['SLACK_API_USER_TOKEN']
+      end
+      @slack = Slack::Web::Client.new
       chk = self.auth_test
       if chk["ok"] == false
         raise ApiKeyPermissionError.exception(chk["error"])
