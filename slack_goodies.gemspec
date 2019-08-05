@@ -1,9 +1,10 @@
 lib = File.expand_path("../lib",__FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'slack_goodies/version.rb'
 
 Gem::Specification.new do |spec|
   spec.name = "slack_goodies"
-  spec.version = "0.1.0"
+  spec.version = SlackGoodies::VERSION
   spec.date = "2019-04-23"
   spec.summary = "Slack goodies command"
   spec.description = "Slack便利コマンド "
@@ -23,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
 
-  spec.add_runtime_dependency "slack-api","1.6.1"
+  spec.add_runtime_dependency "slack-ruby-client"
 end
