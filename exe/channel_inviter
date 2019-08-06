@@ -13,7 +13,14 @@ rescue =>e
   exit
 end
 
-dryrun="[dryrun] " if cli.get(:dryrun) 
+dryrun="[dryrun] " if cli.get(:dryrun)
+
+
+if cli.get(:verbose).nil? then
+  verbose = cli.get(:dryrun)
+else
+  verbose = cli.get(:verbose)
+end 
 
 channel_data = sl.channelname2channeldata(channel_name)
 if channel_data.nil? then
@@ -28,13 +35,15 @@ puts "以下のチャンネルに対して招待を行います"
 puts "Channel: #{channel_data['name']} #{channel_data['id']}"
 puts "#{channel_data['purpose']['value']}"
 
-if cli.get(:dryrun) then
-  puts "\n以下のアカウントをチャンネルに招待予定です"
-else
-  puts "\n以下のアカウントをチャンネルに招待します"
+if verbose then
+  if cli.get(:dryrun) then
+    puts "\n以下のアカウントをチャンネルに招待予定です"
+  else
+    puts "\n以下のアカウントをチャンネルに招待します"
+  end
 end
 sl.email2userdata(mailaddr_regexp).each do |user|
-  puts "#{dryrun}#{user["real_name"]}(#{user["profile"]["email"]})"
+  puts "#{dryrun}#{user["real_name"]}(#{user["profile"]["email"]})" if verbose
   if !cli.get(:dryrun) then
     sl.channels_invite(channel:channel_data['id'],user:user['id'])
   end
