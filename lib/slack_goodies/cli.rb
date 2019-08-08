@@ -10,6 +10,7 @@ module SlackGoodies
           opt.on('--regexp VALUE','正規表現でユーザのメールアドレスを指定')	{|v| @options[:mail] = v}
   				opt.on('--channel VALUE','チャンネル名を指定'){|v| @options[:channel] = v}
   				opt.on('--filename FILENAME','ファイルからユーザのメールアドレスを読み込む'){|v| @options[:filename] = v}
+          opt.on('--[no-]verbose',"実行時にdryrunと同じ程度の実行内容の出力を行う(default: #{@options[:verbose]})"){|v| @options[:verbose] = v}
           opt.on('--[no-]dryrun',"dryrunにする(default: #{@options[:dryrun]})"){|v| @options[:dryrun] = v}
           begin
             opt.parse!(ARGV)

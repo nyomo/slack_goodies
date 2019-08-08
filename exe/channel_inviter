@@ -42,9 +42,8 @@ if verbose then
     puts "\n以下のアカウントをチャンネルに招待します"
   end
 end
+verbose = true
 sl.email2userdata(mailaddr_regexp).each do |user|
-  puts "#{dryrun}#{user["real_name"]}(#{user["profile"]["email"]})" if verbose
-  if !cli.get(:dryrun) then
-    sl.channels_invite(channel:channel_data['id'],user:user['id'])
-  end
+  puts "#{dryrun}#{user["real_name"]}(#{user["profile"]["email"]}) #{user["name"]}" if verbose
+  result = sl.channels_invite(channel:channel_data['id'],user:user['id'],user_name:user['name'],dryrun: dryrun)
 end
