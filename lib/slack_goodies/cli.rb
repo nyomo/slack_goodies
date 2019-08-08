@@ -4,6 +4,7 @@ module SlackGoodies
     def initialize
         @options = {
           dryrun: true,
+          varbose: false,
         }
         OptionParser.new do |opt|
           opt.banner = "Usage:ほげほげ"
