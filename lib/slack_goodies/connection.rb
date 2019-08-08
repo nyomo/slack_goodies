@@ -62,7 +62,18 @@ module SlackGoodies
       channeldata
     end
     def channels_invite(options={})
-      @slack.channels_invite(options)
+    #channels_invite(channel:channel_data['id'],user:user['id'],user_name:user['name'],dryrun: dryrun)
+    #users+=(list["members"].select{|u| (!u["deleted"] && /#{mailaddr_regexp}/ === u["profile"]["email"])})
+      channel_data = @slack.channels_info(options)
+      if(channel_data["channel"]["members"].include?(options[:user]))
+        return false
+      else
+        begin
+        @slack.channels_invite(options)
+        rescue => e
+          return e.message
+        end
+      end
     end
   end 
   class ApiKeyPermissionError < StandardError
