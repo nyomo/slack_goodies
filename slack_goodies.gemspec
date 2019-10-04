@@ -25,6 +25,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
 
   spec.add_runtime_dependency "slack-ruby-client"
-  spec.add_development_dependency "aruba"
   spec.add_development_dependency "cucumber"
+  spec.add_development_dependency "rspec", "~> 3.2"
 end
