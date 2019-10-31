@@ -6,10 +6,12 @@ module SlackGoodies
         config.token = ENV['SLACK_API_USER_TOKEN']
       end
       @slack = Slack::Web::Client.new
+=begin
       chk = self.auth_test
       if chk["ok"] == false
         raise ApiKeyPermissionError.exception(chk["error"])
       end
+=end
       @channels = nil
     end
     def auth_test
