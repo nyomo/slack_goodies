@@ -24,6 +24,8 @@ module SlackGoodies
       slack = slack_client
       return @channels if !@channels.nil?
       list = slack.channels_list
+      //ここにslack.channels_listがちゃんと値を返しているかのチェックが必要
+      //テストデータがかえるmockに差し替えられるとテスト捗る
       @channels = list["channels"]
       while list != nil
         if  list["response_metadata"]["next_cursor"] != ""
