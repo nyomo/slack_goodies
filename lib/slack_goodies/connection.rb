@@ -21,12 +21,13 @@ module SlackGoodies
       @slack.auth_test
     end
     def channel_list
+      slack = slack_client
       return @channels if !@channels.nil?
-      list = @slack.channels_list
+      list = slack.channels_list
       @channels = list["channels"]
       while list != nil
         if  list["response_metadata"]["next_cursor"] != ""
-          list = @slack.channels_list(cursor:list["response_metadata"]["next_cursor"])
+          list = slack.channels_list(cursor:list["response_metadata"]["next_cursor"])
           @channels += list["channels"]
         else
           list = nil
