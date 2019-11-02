@@ -1,6 +1,5 @@
 require 'slack_goodies'
 describe SlackGoodies::Connection do
-   it "Slackと接続できたか"
    it "public channelの一覧が取得出来る" do
       slack_api_mock = double("Slack API")
       allow(slack_api_mock).to receive(:channels_list)
