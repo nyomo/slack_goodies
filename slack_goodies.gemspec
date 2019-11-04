@@ -27,4 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "slack-ruby-client"
   spec.add_development_dependency "cucumber"
   spec.add_development_dependency "rspec", "~> 3.2"
+  spec.add_development_dependency "vcr"
+  spec.add_development_dependency "webmock"
 end
